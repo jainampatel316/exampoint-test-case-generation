@@ -1,0 +1,21 @@
+﻿ID,Scenario,Input / Steps,Expected Result,Type
+TC01,Valid registration and successful payment,Valid student details; available subject; payment succeeds,Registration is confirmed only after payment succeeds.,Positive
+TC02,Name field left blank,Leave required name empty and submit,Name validation message appears; no registration is created.,Negative
+TC03,Email has invalid format,Enter student@invalid,Email format validation appears.,Negative
+TC04,Email field left blank,Leave required email empty and submit,Email-required message appears.,Negative
+TC05,No subject selected,Complete details but select no subject,System requests at least one subject.,Negative
+TC06,Unavailable subject selected,Attempt to select a subject marked unavailable,Unavailable subject is rejected and cannot be registered.,Negative
+TC07,Fee for one subject,Select one subject with a configured fee,Displayed total matches the configured fee for that subject.,Positive
+TC08,Fee for multiple subjects,Select multiple subjects with configured fees,Displayed total matches the applicable fee rules.,Positive
+TC09,Payment declined,Use a payment test response that indicates decline,Payment failure is shown; registration is not confirmed.,Exception
+TC10,Payment gateway unavailable,Simulate gateway unavailable response,Clear error appears; no false success confirmation is shown.,Exception
+TC11,Payment times out,Simulate timeout after payment submission,System shows the designed status and avoids duplicate charges on retry.,Exception
+TC12,Double-click submit/pay,Submit or pay twice quickly,Duplicate registration/payment is prevented or safely reconciled.,Exception
+TC13,Minimum allowed subject count,"Select one subject, assuming one is the minimum",Selection is accepted and registration can proceed.,Boundary-value
+TC14,Maximum allowed subject count,Select documented maximum number of subjects,Selection at the documented limit is accepted; limit must be specified.,Boundary-value
+TC15,One above maximum subjects,Attempt maximum + 1 subjects,Extra selection is blocked or validation appears; limit must be specified.,Boundary-value
+TC16,Refresh after successful payment,Refresh confirmation page after successful payment,Existing registration status appears; no new payment/registration is created.,Exception
+TC17,Session expires during registration,Allow session to expire before submitting,Session-expiry message/sign-in request appears; no false confirmation.,Exception
+TC18,Unexpected server error,Simulate server error during submission,User-friendly error appears; no false registration success.,Exception
+TC19,Name at allowed minimum length,Enter shortest name allowed by documented rule,Input is handled according to documented rule; rule must be specified.,Boundary-value
+TC20,Name at allowed maximum length,Enter longest name allowed by documented rule,Input is handled according to documented limit; limit must be specified.,Boundary-value

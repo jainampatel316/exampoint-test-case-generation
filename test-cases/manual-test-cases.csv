@@ -1,0 +1,6 @@
+﻿ID,Scenario,Input / Steps,Expected Result,Type
+M01,Register with valid details,Valid name and email; select an available subject; successful payment,Registration confirmation is displayed and a registration reference is generated.,Positive
+M02,Submit with student name empty,Leave name blank; fill other required fields; submit,Name-required validation message appears; registration is not completed.,Negative
+M03,Submit an invalid email,Enter student@invalid and submit,Email validation message appears; registration is not completed.,Negative
+M04,Submit without selecting a subject,Enter valid student details; select no subjects; submit,System asks the student to select at least one subject.,Negative
+M05,Payment is declined,"Enter valid details, select a subject, and simulate a declined payment",Payment failure is shown and registration is not confirmed.,Exception
